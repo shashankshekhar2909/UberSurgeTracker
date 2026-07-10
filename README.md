@@ -1,20 +1,47 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Uber Surge Demand Tracker
 
-# Run and deploy your AI Studio app
+AI-powered ride-hailing surge tracker. Forecasts surge multipliers, fares, and wait times for a pickup/dropoff route, and recommends whether to book now, wait, walk to a cheaper hotspot, or take transit instead.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/5bc507fc-add0-4028-b5e0-6cad574b6975
+- **Surge forecasting** — Gemini-powered analysis of a route (weather, traffic, time of day, local events) producing a real-time surge multiplier, estimated fare, and wait time.
+- **60-minute forecast trend** — projected surge/demand over the next hour so you know whether to book now or wait.
+- **Nearby hotspots** — lower-surge pickup points a short walk away, with distance and direction.
+- **Transit alternative** — cost/duration/comfort comparison against public transit.
+- **Live surge simulation** — surge multiplier drifts in real time with configurable alert thresholds (audio + push notification).
+- **Scenario presets** — quick-test citywide surge conditions (e.g. concerts, storms, rush hour) without waiting for live data.
+- **Saved routes** — sign in with Google (Firebase Auth) to save and revisit frequent routes, backed by Firestore.
+- **Interactive map** — Google Maps visualization of pickup, dropoff, and nearby hotspots.
+
+## Tech Stack
+
+- React 19 + Vite + TypeScript
+- Express server (`server.ts`) proxying Gemini API calls
+- `@google/genai` (Gemini) for surge analysis
+- Firebase (Auth + Firestore) for saved routes
+- `@vis.gl/react-google-maps` for map rendering
+- Tailwind CSS, Recharts, lucide-react, motion
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Copy `.env.example` to `.env.local` and fill in the values:
+   - `GEMINI_API_KEY` — your Gemini API key
+   - `GOOGLE_MAPS_PLATFORM_KEY` — Google Maps Platform key
+   - `FIREBASE_*` — your Firebase project config (see Firebase console → Project settings)
 3. Run the app:
    `npm run dev`
+
+## Build
+
+```
+npm run build
+npm run start
+```
+
+## Security
+
+Never commit real API keys or `firebase-applet-config.json` — both are gitignored. Use `.env.local` for local secrets.
