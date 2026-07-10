@@ -2,17 +2,17 @@ import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Config loaded from firebase-applet-config.json
+// Config loaded from environment variables (see .env.example). Never hardcode secrets here.
 const firebaseConfig = {
-  apiKey: "REDACTED_FIREBASE_KEY",
-  authDomain: "gen-lang-client-0198159235.firebaseapp.com",
-  projectId: "gen-lang-client-0198159235",
-  storageBucket: "gen-lang-client-0198159235.firebasestorage.app",
-  messagingSenderId: "36613802708",
-  appId: "1:36613802708:web:58b5783a017b644b298941"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
 
-const DATABASE_ID = "ai-studio-ubersurgedemandt-5bc507fc-add0-4028-b5e0-6cad574b6975";
+const DATABASE_ID = process.env.FIREBASE_DATABASE_ID;
 
 let app: any;
 let auth: any;
