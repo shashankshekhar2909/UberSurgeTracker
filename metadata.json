@@ -1,0 +1,6 @@
+{
+  "name": "Uber Surge Demand Tracker",
+  "description": "An interactive real-time surge demand forecaster and walk/wait recommendation assistant to help riders optimize pricing and pick-up wait times.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

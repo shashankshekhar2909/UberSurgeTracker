@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Custom styling for Google Maps Autocomplete pac-container drop-down */
+.pac-container {
+  background-color: #0b0f19 !important; /* bg-slate-950/deep slate */
+  border: 1px solid rgba(148, 163, 184, 0.15) !important; /* border-slate-800 */
+  border-radius: 0.75rem !important;
+  font-family: ui-sans-serif, system-ui, sans-serif !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4) !important;
+  margin-top: 6px !important;
+  z-index: 99999 !important;
+  padding: 4px 0 !important;
+}
+
+.pac-item {
+  border-top: 1px solid rgba(148, 163, 184, 0.08) !important;
+  padding: 8px 14px !important;
+  color: #94a3b8 !important; /* text-slate-400 */
+  cursor: pointer;
+  display: flex !important;
+  align-items: center !important;
+  font-size: 11px !important;
+  transition: all 0.15s ease;
+}
+
+.pac-item:hover, .pac-item:active {
+  background-color: rgba(30, 41, 59, 0.6) !important; /* bg-slate-800/60 */
+  color: #f8fafc !important; /* text-slate-50 */
+}
+
+.pac-item-query {
+  color: #e2e8f0 !important; /* text-slate-200 */
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding-right: 5px !important;
+}
+
+.pac-matched {
+  color: #3b82f6 !important; /* text-blue-500 matching Map theme */
+  font-weight: 700 !important;
+}
+
+.pac-icon {
+  display: none !important; /* Hide old generic map marker icons */
+}
+
